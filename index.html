@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://fonts.googleapis.com/css2?family=Almendra+SC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <script src="js/app.js" defer></script>
@@ -14,7 +15,39 @@
 
 <body>
     <h1 class="title">OwlPlan</h1>
-    <div class="entrar"></div>
+    <div class="cadastrar">
+        <div>
+            <p>Insira seu Nome:</p>
+            <input type="text" placeholder="Digite seu Nome" id="nome">
+        </div>
+        <div>
+            <p>Insira seu E-mail:</p>
+            <input type="text" placeholder="Digite seu E-mail" id="email">
+        </div>
+        <div class="senha">
+            <p>Insira sua Senha:</p>
+            <div class="input-container">
+                <input type="password" placeholder="Digite sua Senha" id="senha">
+                <img src="./img/eye.png" alt="view" id="eyeIcon">
+            </div>
+        </div>
+
+        <div class="senha2">
+            <p>Confirme sua Senha:</p>
+            <div class="input-container2">
+                <input type="password" placeholder="Confirme sua Senha" id="senha2">
+                <img src="./img/eye.png" alt="view" id="eyeIcon2">
+            </div>
+        </div>
+
+        <div>
+            <p>Defina seu limite: </p>
+            <input type="number" placeholder="Seu limite" id="limite">
+        </div>
+        <button onclick="criarConta()" id="login"> Cadastrar</button>
+        <p>Já tem conta? <a href="#" id="trocarParaLogin">Entre</a></p>
+    </div>
+
 </body>
 
 </html>
