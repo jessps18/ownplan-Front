@@ -39,6 +39,10 @@ async function criarConta() {
       showConfirmButton: false,
     }).then(() => {
       window.location.href = './html/paginaInicial.html';
+      localStorage.setItem("limiteUsuario", limite);
+      localStorage.setItem("nome", nome);
+      localStorage.setItem("email", email);
+      localStorage.setItem("senha", senha);
     });
   } else {
     Swal.fire({

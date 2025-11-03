@@ -1,23 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/paginaInicial.css">
-    <script src="../js/paginaInicial.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almendra+SC&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/paginaInicial.js" defer></script>
     <title>OwlPlan</title>
 </head>
 <body>
     <header>
-        <img src="../img/user-icon.png" alt="user icon">
-        <img src="../img/calendar.png" alt="gastos passados">
+        <a href="../html/perfil.html"><img src="../img/user-icon.png" alt="usuário"></a>
+        <a href="../html/historico.html"> <img src="../img/calendar.png" alt="histórico de gastos"></a>
     </header>
-    <div class="grafico">
-         <canvas id="gaugeChart"></canvas>
-    </div>
-    <div class="graficoAtual">
 
-    </div>
+    <main>
+        <div class="graphic">
+            <div class="grafico">
+                <canvas id="gaugeChart"></canvas>
+            </div>
+            <h2>Limite: <span id="valorLimite">R$ 0,00</span></h2>
+
+            <div class="graficoAtual">
+                <p>histórico:</p>
+                <div id="historico">
+                <input type="text" readonly placeholder="Nenhuma transação ainda">
+            </div>
+            </div>
+        </div>
+    </main>
+
+    <button id="addTransacao">+</button>
 </body>
 </html>

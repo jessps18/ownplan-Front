@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Almendra+SC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/perfil.css">
+    <script src="../js/perfil.js" defer></script>
+    <title>Perfil</title>
+</head>
+<body>
+    <header>
+        <a href="./paginaInicial.html"><img src="../img/home.png" alt=""></a>
+    </header>
+    <main>
+        <div class="conta">
+           <div class="sair">
+             <a href="../index.html"><img src="../img/sair.png" alt=""></a>
+           </div>
+            <div>
+                <p>Nome:</p>
+                <input type="text" readonly id="nome">
+            </div>
+            <div>
+                <p>Email:</p>
+                <input type="text" readonly id="email">
+            </div>
+            <div>
+                <p>Senha:</p>
+                <input type="password" readonly id="senha">
+            </div>
+            <div>
+                <p>Limite:</p>
+                <input type="number" readonly id="limite">
+            </div>
+            <div class="changes">
+                <button class="excluir" id="excluir">Excluir</button>
+                <button class="editar" id="editar">Editar</button>
+                <button class="salvar" id="salvar" style="display: none;">Salvar</button>
+                <button class="cancelar" id="cancelar" style="display: none;">Cancelar</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

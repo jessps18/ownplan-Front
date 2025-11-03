@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    background: radial-gradient(circle, rgba(58, 80, 107, 1) 0%, rgba(28, 37, 65, 1) 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("../img/image1.png") left/900px no-repeat;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+header img {
+    width: 65px;
+    height: 65px;
+    cursor: pointer;
+}
+
+.conta{
+    width: 900px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#graficoGanhos{
+    width: max-content;
+    height: max-content;
+}

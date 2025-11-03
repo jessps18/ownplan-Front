@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    background: radial-gradient(circle, rgba(58, 80, 107, 1) 0%, rgba(28, 37, 65, 1) 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("../img/image1.png") left/900px no-repeat;
+    opacity: 0.5;
+    z-index: -1;
+}
+header{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    padding-right: 20px;
+    padding-top: 5px;
+}
+
+header img{
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+}
+
+main{
+    height: 86vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conta{
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 400px;
+    height: 430px;
+    display: flex;
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.conta p{
+    padding-left: 10px;
+}
+
+.sair{
+    width: 400px;
+    padding-left: 320px;
+}
+
+.sair img{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.conta input{
+    width: 330px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    cursor: default;
+    padding-left: 10px;
+}
+
+.conta input:focus{
+    outline: none;
+}
+
+.changes{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.changes button{
+    width: 150px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+}
+
+.editar, .salvar{
+    background-color: #CC9140;
+}
+
+.excluir, .cancelar{
+    background-color: red;
+}
