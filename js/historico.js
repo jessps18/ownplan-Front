@@ -1,16 +1,23 @@
-// === Gráfico de Ganhos e Perdas (dados estáticos) ===
-
-// Meses do ano
 const meses = [
   'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
   'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
 ];
 
-// Dados de demonstração
 const ganhos = [1200, 1450, 1600, 2000, 1800, 2200, 1950, 2100, 2500, 2400, 2300, 2600];
 const perdas = [800, 700, 900, 1100, 950, 1000, 1050, 850, 1200, 1100, 1300, 1250];
 
-// Configuração dos dados do gráfico
+const descricaoGanhos = [
+  "Salário", "Freelancer", "Comissão", "Bônus", "Extra",
+  "Freelancer grande", "Reembolso", "Venda online", "Prêmio",
+  "Horas extras", "Serviço técnico", "Décimo terceiro"
+];
+
+const descricaoPerdas = [
+  "Aluguel", "Mercado", "Transporte", "Cartão de crédito", "Farmácia",
+  "Roupas", "Restaurante", "Lazer", "Internet",
+  "Contas diversas", "Presentes", "Imprevistos"
+];
+
 const data = {
   labels: meses,
   datasets: [
@@ -33,7 +40,6 @@ const data = {
   ]
 };
 
-// Configurações gerais do gráfico
 const config = {
   type: 'line',
   data: data,
@@ -69,7 +75,7 @@ const config = {
           color: 'white'
         },
         ticks: {
-          color: 'white', // COR DOS NÚMEROS DO EIXO Y
+          color: 'white', 
           font: {
             family: 'Almendra SC',
             size: 12
@@ -86,7 +92,7 @@ const config = {
           color: 'white'
         },
         ticks: {
-          color: 'white', // COR DOS NOMES DOS MESES
+          color: 'white', 
           font: {
             family: 'Almendra SC',
             size: 12
@@ -100,6 +106,35 @@ const config = {
   },
 };
 
-// Renderiza o gráfico
 const ctx = document.getElementById('graficoGanhos');
 new Chart(ctx, config);
+
+document.getElementById("btnVerFatura").addEventListener("click", () => {
+
+  let html = "<h3 style='color:#4caf50;'>Ganhos</h3>";
+  ganhos.forEach((valor, i) => {
+    html += `
+      <b>${meses[i]}</b>: R$ ${valor} <br>
+      <i>Descrição:</i> ${descricaoGanhos[i]} <br><br>
+    `;
+  });
+
+  html += "<h3 style='color:#f44336;'>Perdas</h3>";
+  perdas.forEach((valor, i) => {
+    html += `
+      <b>${meses[i]}</b>: R$ ${valor} <br>
+      <i>Descrição:</i> ${descricaoPerdas[i]} <br><br>
+    `;
+  });
+
+  Swal.fire({
+    title: "Fatura Completa — 2025",
+    html: html,
+    icon: "info",
+    background: "#222",
+    color: "white",
+    width: 600,
+    confirmButtonText: "Fechar"
+  });
+
+});

@@ -2,7 +2,7 @@ const ctx = document.getElementById('gaugeChart');
 
 const limiteSalvo = localStorage.getItem("limiteUsuario");
 const limite = limiteSalvo ? Number(limiteSalvo) : 2000;
-let saldo = 500;
+let saldo = limite;
 
 document.getElementById("valorLimite").textContent = `R$ ${limite.toFixed(2)}`;
 
@@ -53,13 +53,16 @@ const grafico = new Chart(ctx, {
 
 const historicoDiv = document.getElementById("historico");
 
-function atualizarHistorico(tipo, valor) {
+function atualizarHistorico(tipo, valor, descricao) {
   const input = document.createElement("input");
   input.type = "text";
   input.readOnly = true;
-  input.value = `${tipo === "ganho" ? "💰 +" : "💸 -"} R$ ${valor.toFixed(2)}`;
-  historicoDiv.prepend(input); // adiciona no topo
+
+  input.value = `${tipo === "ganho" ? "💰 +" : "💸 -"} R$ ${valor.toFixed(2)} — ${descricao}`;
+
+  historicoDiv.prepend(input);
 }
+
 
 document.getElementById("addTransacao").addEventListener("click", () => {
   Swal.fire({
@@ -70,6 +73,8 @@ document.getElementById("addTransacao").addEventListener("click", () => {
         <option value="gasto">💸 Gasto</option>
       </select>
       <input id="valor" type="number" class="swal2-input" placeholder="Valor (R$)">
+      <input id="desc" type="text" class="swal2-input" placeholder="Descrição">
+
     `,
     confirmButtonText: "Salvar",
     showCancelButton: true,
@@ -77,6 +82,7 @@ document.getElementById("addTransacao").addEventListener("click", () => {
     preConfirm: () => {
       const tipo = document.getElementById("tipo").value;
       const valor = Number(document.getElementById("valor").value);
+      const descricao = document.getElementById("desc").value;
 
       if (!valor || valor <= 0) {
         Swal.showValidationMessage("Informe um valor válido!");
@@ -88,7 +94,7 @@ document.getElementById("addTransacao").addEventListener("click", () => {
 
       localStorage.setItem("saldoAtual", saldo);
       atualizarGrafico();
-      atualizarHistorico(tipo, valor);
+      atualizarHistorico(tipo, valor, descricao);
     }
   });
 });
